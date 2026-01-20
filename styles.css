@@ -1,0 +1,81 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background-color: #f5f5dc; /* A light pastel background for the body */
+}
+
+/* Navigation Bar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Pushes the logo to the right */
+    align-items: center;
+    background-color: #fdfd96; /* Pastel yellow color */
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.nav-links a {
+    color: #333;
+    
+    padding: 10px 15px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #e67e22; /* A nice orange color for hover effect */
+}
+
+/* Logo Styling */
+.logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; /* Makes the logo circular */
+    object-fit: cover; /* Ensures the image covers the circular area well */
+    border: 2px solid #fff; /* Optional border for definition */
+}
+
+/* Main Content Section (Background Image and Text Overlay) */
+.main-content {
+    background-image: url('https://cdn.freecodecamp.org/curriculum/css-cafe/beans.jpg'); /* Replace with your image URL/path */
+    background-size: cover;
+    background-position: center;
+    height: 60vh; /* Adjust height as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    color: white; /* Text color over the image */
+}
+
+/* Overlay to make text readable */
+.overlay {
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black overlay */
+    padding: 40px;
+    border-radius: 10px;
+    max-width: 600px;
+}
+
+.main-content h1 {
+    margin: 0 0 10px;
+    font-size: 3em;
+}
+
+.main-content p {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+/* Styling for the placeholder sections */
+section {
+    padding: 40px 20px;
+    margin: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
