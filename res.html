@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bon Appetit Cafe</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Bon Apetite Cafe</title>
+    <link rel="stylesheet" href="styles1.css"> 
+    <style> code{ font-family : monospace;}  </style>
 </head>
 <body>
 
@@ -15,6 +16,7 @@
             <a href="#menu">Menu</a>
             <a href="#reviews">Reviews</a>
             <a href="#about">About Us</a>
+            <a href="#contact">Contact Us </a>
         </div>
         <!-- Logo Container -->
         <div class="logo-container">
@@ -26,7 +28,7 @@
     <!-- Main Content Section with Background Image and Description -->
     <main class="main-content">
         <div class="overlay">
-            <h1>Welcome to Bon Appetit</h1>
+            <h1>Welcome to Bon Apetite</h1>
             <p>A place where every meal is a delight. Enjoy our finest coffee and delicious pastries in a cozy atmosphere.</p>
         </div>
     </main>
@@ -41,14 +43,38 @@
         <p>Explore our wide range of menu items.</p>
     </section>
     <section id="reviews">
-        <h2>Reviews Content</h2>
-        <p>See what our customers are saying.</p>
+        <h2>Share your Reviews </h2>
+        <p>Your feedback will not go unnoticed :) </p>
+         <form>
+  	<label for="fname">Full name:</label><br>
+  	<input type="text" id="fname" name="fname" ><br>
+  	<label for="email">Email address :</label><br>
+  	<input type="email" id="email" name="email"><br><br>
+  	<label for="review">Describe your dining experience : </label><br>
+  	<textarea rows="10" cols="20"> </textarea>
+  	<input type="submit" value="Submit">
+    </form> 
     </section>
     <section id="about">
         <h2>About Us Content</h2>
-        <p>Learn more about the Bon Appetit story.</p>
+        <p>Learn more about the Bon Apetite story.</p>
     </section>
+    
+    <footer class="navbar">
+    <div class="contact-item">
+    <img src="/home/admin1/Desktop/tel.png" alt="phone" class="icon" style="width: 100px; height: auto;">
+    <span> 020 27424003 </span>
+    </div>
+    <div class="contact-item">
+        <img src="/home/admin1/Desktop/mail.png" alt="Email" class="icon" style="width: 100px; height: auto;">
+        <span>bonappetite@email.com</span>
+    </div>
+    <div class="contact-item">
+        <img src="/home/admin1/Desktop/ig.png" alt="Instagram" class="icon" style="width: 100px; height: auto;">
+        <span>@bonappetitecafe</span>
+    </div>
+    </footer>
+   
 
 </body>
 </html>
-
