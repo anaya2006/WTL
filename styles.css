@@ -1,81 +1,126 @@
-body {
+/* Reset default browser styles */
+* {
     margin: 0;
-    font-family: sans-serif;
-    background-color: #f5f5dc; /* A light pastel background for the body */
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Navigation Bar Styling */
+/* Body styling */
+body {
+    background-color: #fffbea; /* light yellow background */
+    color: #333;
+}
+
+/* ---------------- NAVBAR ---------------- */
 .navbar {
     display: flex;
-    justify-content: space-between; /* Pushes the logo to the right */
+    justify-content: space-between;
     align-items: center;
-    background-color: #fdfd96; /* Pastel yellow color */
-    padding: 10px 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #f4c430; /* golden yellow */
+    padding: 15px 30px;
+}
+
+/* Navigation links (horizontal tabs) */
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+.navbar {
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 1000;
 }
 
 .nav-links a {
-    color: #333;
-    
-    padding: 10px 15px;
+    text-decoration: none;
+    color: #000;
     font-weight: bold;
-    transition: color 0.3s;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
+/* Hover effect for tabs */
 .nav-links a:hover {
-    color: #e67e22; /* A nice orange color for hover effect */
+    text-align : center;
+    background-color: #fff;
+    color: #f4c430;
 }
 
-/* Logo Styling */
+/* Logo styling */
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
 .logo {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%; /* Makes the logo circular */
-    object-fit: cover; /* Ensures the image covers the circular area well */
-    border: 2px solid #fff; /* Optional border for definition */
+    height: 50px;
+    width: auto;
+    border-radius: 50%;
 }
 
-/* Main Content Section (Background Image and Text Overlay) */
+/* ---------------- MAIN CONTENT ---------------- */
 .main-content {
-    background-image: url('https://cdn.freecodecamp.org/curriculum/css-cafe/beans.jpg'); /* Replace with your image URL/path */
+    height: 70vh;
+    background-image: url("https://images.unsplash.com/photo-1509042239860-f550ce710b93");
     background-size: cover;
     background-position: center;
-    height: 60vh; /* Adjust height as needed */
+    position: relative;
+}
+
+/* Overlay on background image */
+.overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    color: #ffeb3b;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    position: relative;
-    color: white; /* Text color over the image */
+    padding: 20px;
 }
 
-/* Overlay to make text readable */
-.overlay {
-    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black overlay */
-    padding: 40px;
-    border-radius: 10px;
-    max-width: 600px;
+.overlay h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
 }
 
-.main-content h1 {
-    margin: 0 0 10px;
-    font-size: 3em;
+.overlay p {
+    font-size: 20px;
+    max-width: 700px;
 }
 
-.main-content p {
-    margin: 0;
-    font-size: 1.2em;
-}
-
-/* Styling for the placeholder sections */
+/* ---------------- SECTIONS ---------------- */
 section {
-    padding: 40px 20px;
-    margin: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    padding: 50px 30px;
+    border-bottom: 2px solid #f4c430;
+    background-color: #fffdf2;
+    display: flex;
+    flex-direction: column;
 }
 
+section h2 {
+    color: #f4c430;
+    margin-bottom: 10px;
+    font-size: 32px;
+}
+
+section p {
+    font-size: 18px;
+}
+
+section form {
+    max-width: 800px;   /* controls width */
+    margin: 10px auto;  /* centers content */
+    text-align: left;   /* left-justified text */
+}
+
+section input,
+section textarea {
+    width: 100%;
+    max-width: 500px;
+    padding: 8px;
+    margin-bottom: 15px;
+}
