@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="mystyles1.css"?>
+<!DOCTYPE company [
+  <!ELEMENT company (employee+)>
+  <!ELEMENT employee (eid, ename, dept, sal, joining_date)>
+  <!ELEMENT eid (#PCDATA)>
+  <!ELEMENT ename (#PCDATA)>
+  <!ELEMENT dept (#PCDATA)>
+  <!ELEMENT sal (#PCDATA)>
+  <!ELEMENT joining_date (#PCDATA)>
+  <!ELEMENT email_id (#PCDATA)>
+  <!ELEMENT curr_add (#PCDATA)>
+]>
+
+<company>
+  <employee>
+    <eid>EMPLOYEE ID</eid>
+    <ename>EMPLOYEE NAME</ename>
+    <dept>DEPARTMENT</dept>
+    <sal>SALARY</sal>
+    <joining_date>JOINING DATE</joining_date>
+    <email_id>EMAIL ID</email_id>
+    <curr_add>CURRENT ADDRESS</curr_add>
+  </employee>
+  <employee>
+    <eid>101</eid>
+    <ename>Kabeer Wadhwa</ename>
+    <dept>IT</dept>
+    <sal>100000</sal>
+    <joining_date>15-01-2021</joining_date>
+    <email_id>kabeerwadhwa01@gmail.com</email_id>
+    <curr_add>Noida Sector 17, UP</curr_add>
+  </employee>
+  <employee>
+    <eid>102</eid>
+    <ename>Sana Jain</ename>
+    <dept>IT</dept>
+    <sal>115000</sal>
+    <joining_date>20-11-2019</joining_date>
+    <email_id>jainsana05@yahoo.com</email_id>
+    <curr_add>Viman Nagar, Pune, MH</curr_add>
+  </employee>
+  <employee>
+    <eid>103</eid>
+    <ename>Sachin Deshpande</ename>
+    <dept>Finance</dept>
+    <sal>60000</sal>
+    <joining_date>15-05-2022</joining_date>
+    <email_id>sachindeshpande@gmail.com</email_id>
+    <curr_add>Ghatkopar, Mumbai, MH</curr_add>
+  </employee>
+   <employee>
+    <eid>104</eid>
+    <ename>Shreya Kulkarni</ename>
+    <dept>Finance</dept>
+    <sal>65000</sal>
+    <joining_date>20-06-2020</joining_date>
+    <email_id>shreya1997@gmail.com</email_id>
+    <curr_add>Vanaz, Pune, MH</curr_add>
+  </employee>
+  
+</company>

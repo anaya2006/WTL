@@ -1,0 +1,24 @@
+company {
+    display: table;
+    border-collapse: collapse;
+    margin: 20px;
+    font-family: Arial, sans-serif;
+    width: 90%;
+}
+
+header, employee {
+    display: table-row;
+}
+
+label, eid, ename, dept, sal, joining_date, email_id, curr_add {
+    display: table-cell;
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+header {
+    font-weight: bold;
+    background-color: #f2f2f2;
+}
+
