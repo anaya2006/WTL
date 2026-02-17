@@ -15,12 +15,17 @@ function deleteButton() {
   document.getElementById('result').value = currentValue;
 }
 
-
 function calculate(operator) {
   if (operator === '=') {
     try {
-      currentValue = eval(currentValue).toString();
-      document.getElementById('result').value = currentValue;
+      // 1. Calculate the result
+      let result = eval(currentValue);
+      
+      // 2. Display both: "Expression = Result"
+      document.getElementById('result').value = `${currentValue} = ${result}`;
+      
+      // 3. Update currentValue to the result so the user can keep calculating
+      currentValue = result.toString();
     } catch (error) {
       alert('Invalid expression');
       clearDisplay();
@@ -34,5 +39,3 @@ function calculate(operator) {
     document.getElementById('result').value = currentValue;
   }
 }
-
-
