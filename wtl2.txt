@@ -1,0 +1,214 @@
+Anaya Badave 
+TE-III R batch
+Rollno. 60
+Assignment - 2
+
+res.html 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bon Apetite Cafe</title>
+    <link rel="stylesheet" href="styles.css"> 
+    <style> code{ font-family : monospace;}  </style>
+</head>
+<body>
+
+    <!-- Main Horizontal Navigation Bar -->
+    <header class="navbar">
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#menu">Menu</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact Us </a>
+        </div>
+        <!-- Logo Container -->
+        <div class="logo-container">
+            <!-- Replace 'logo.png' with your actual logo image path -->
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoh8Y-o8JkaebydDSV06PD3aYbdw1jderxtg&s" alt="Cafe Logo" class="logo">
+        </div>
+    </header>
+
+    <!-- Main Content Section with Background Image and Description -->
+    <main class="main-content">
+        <div class="overlay">
+            <h1>Welcome to Bon Apetite</h1>
+            <p>A place where every meal is a delight. Enjoy our finest coffee and delicious pastries in a cozy atmosphere.</p>
+        </div>
+    </main>
+
+    <!-- Placeholder Sections for Navigation Links -->
+    <section id="home">
+        <h2>Home Content</h2>
+        <p>This is the home section.</p>
+    </section>
+    <section id="menu">
+        <h2>Menu Content</h2>
+        <p>Explore our wide range of menu items.</p>
+    </section>
+    <section id="reviews">
+        <h2>Share your Reviews </h2>
+        <p>Your feedback will not go unnoticed :) </p>
+         <form>
+  	<label for="fname">Full name:</label><br>
+  	<input type="text" id="fname" name="fname" ><br>
+  	<label for="email">Email address :</label><br>
+  	<input type="email" id="email" name="email"><br><br>
+  	<label for="review">Describe your dining experience : </label><br>
+  	<textarea rows="10" cols="20"> </textarea>
+  	<input type="submit" value="Submit">
+    </form> 
+    </section>
+    <section id="about">
+        <h2>About Us Content</h2>
+        <p>Learn more about the Bon Apetite story.</p>
+    </section>
+    
+    <footer class="navbar">
+    <div class="contact-item">
+    <img src="/home/admin1/Desktop/tel.png" alt="phone" class="icon" style="width: 100px; height: auto;">
+    <span> 020 27424003 </span>
+    </div>
+    <div class="contact-item">
+        <img src="/home/admin1/Desktop/mail.png" alt="Email" class="icon" style="width: 100px; height: auto;">
+        <span>bonappetite@email.com</span>
+    </div>
+    <div class="contact-item">
+        <img src="/home/admin1/Desktop/ig.png" alt="Instagram" class="icon" style="width: 100px; height: auto;">
+        <span>@bonappetitecafe</span>
+    </div>
+    </footer>
+   
+
+</body>
+</html>
+
+styles.css
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Body styling */
+body {
+    background-color: #fffbea; /* light yellow background */
+    color: #333;
+}
+
+/* ---------------- NAVBAR ---------------- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f4c430; /* golden yellow */
+    padding: 15px 30px;
+}
+
+/* Navigation links (horizontal tabs) */
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Hover effect for tabs */
+.nav-links a:hover {
+    text-align : center;
+    background-color: #fff;
+    color: #f4c430;
+}
+
+/* Logo styling */
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 50px;
+    width: auto;
+    border-radius: 50%;
+}
+
+/* ---------------- MAIN CONTENT ---------------- */
+.main-content {
+    height: 70vh;
+    background-image: url("https://images.unsplash.com/photo-1509042239860-f550ce710b93");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+/* Overlay on background image */
+.overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    color: #ffeb3b;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.overlay h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.overlay p {
+    font-size: 20px;
+    max-width: 700px;
+}
+
+/* ---------------- SECTIONS ---------------- */
+section {
+    padding: 50px 30px;
+    border-bottom: 2px solid #f4c430;
+    background-color: #fffdf2;
+    display: flex;
+    flex-direction: column;
+}
+
+section h2 {
+    color: #f4c430;
+    margin-bottom: 10px;
+    font-size: 32px;
+}
+
+section p {
+    font-size: 18px;
+}
+
+section form {
+    max-width: 800px;   /* controls width */
+    margin: 10px auto;  /* centers content */
+    text-align: left;   /* left-justified text */
+}
+
+section input,
+section textarea {
+    width: 100%;
+    max-width: 500px;
+    padding: 8px;
+    margin-bottom: 15px;
+}
