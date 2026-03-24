@@ -1,0 +1,124 @@
+Anaya Badave
+TE-III R Batch
+Roll no. 60
+Assignment 5
+
+
+MySQL Database
+sudo systemctl start mysql
+sudo mysql
+mysql> CREATE DATABASE ebookshop_db;
+Query OK, 1 row affected (0.03 sec)
+
+mysql> USE ebookshop_db;
+Database changed
+
+mysql> CREATE TABLE ebookshop (book_id INT AUTO_INCREMENT PRIMARY KEY, book_title VARCHAR(100) NOT NULL , book_author VARCHAR(50) NOT NULL, book_price DECIMAL (10,2)
+NOT NULL, quantity INT NOT NULL);
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> INSERT INTO ebookshop (book_title, book_author, book_price, quantity) VALUES ('C++ Programming', "C Balguruswami", 350.0 , 15) , ('Distributed Systems', "Andrew Tanenbaum", 400.0 , 10);
+Query OK, 2 rows affected (0.01 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO ebookshop (book_title, book_author, book_price, quantity) VALUES ('SPOS', "Dhamdhere", 200 , 30) , ('Computer Networking', "Andrew Tanenbaum", 450.
+0 , 40);
+Query OK, 2 rows affected (0.00 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO ebookshop (book_title, book_author, book_price, quantity) VALUES ('Grokking Algorithms', "Aditya Kanetkar", 150 , 60) , ('Java Complete Reference', "Martin Van Steen", 600.0 , 25), ('Cloud Computing: Practical Approach', 'M.S Srinivasan', 350.0 , 50), ('Problem Solving for Beginners', "John Doe", 150.0 , 15);
+Query OK, 4 rows affected (0.01 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO ebookshop (book_title, book_author, book_price, quantity) VALUES ('Linux For Begineers', "Linus", 500.0  , 10) , ('Assembly for Dummies', "Satya Nadella", 650.0 , 35);
+Query OK, 2 rows affected (0.01 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM ebookshop;
++---------+-------------------------------------+------------------+------------+----------+
+| book_id | book_title                          | book_author      | book_price | quantity |
++---------+-------------------------------------+------------------+------------+----------+
+|       1 | C++ Programming                     | C Balguruswami   |     350.00 |       15 |
+|       2 | Distributed Systems                 | Andrew Tanenbaum |     400.00 |       10 |
+|       3 | SPOS                                | Dhamdhere        |     200.00 |       30 |
+|       4 | Computer Networking                 | Andrew Tanenbaum |     450.00 |       40 |
+|       5 | Grokking Algorithms                 | Aditya Kanetkar  |     150.00 |       60 |
+|       6 | Java Complete Reference             | Martin Van Steen |     600.00 |       25 |
+|       7 | Cloud Computing: Practical Approach | M.S Srinivasan   |     350.00 |       50 |
+|       8 | Problem Solving for Beginners       | John Doe         |     150.00 |       15 |
+|       9 | Linux For Begineers                 | Linus            |     500.00 |       10 |
+|      10 | Assembly for Dummies                | Satya Nadella    |     650.00 |       35 |
++---------+-------------------------------------+------------------+------------+----------+
+10 rows in set (0.00 sec)
+
+
+Servlet Code  DisplayBooksServlet.java
+ 
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/displaybooks")   // URL: http://localhost:8080/EbookServletDemo/displaybooks
+public class DisplayBooksServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+
+        out.println("<!DOCTYPE html>");
+        out.println("<html><head><title>Ebook Shop - All Books</title>");
+        out.println("<style>table {border-collapse: collapse; width: 80%;} th, td {border: 1px solid black; padding: 8px; text-align: left;}</style>");
+        out.println("</head><body>");
+        out.println("<h2>All Books from ebookshop Table (via Servlet + MySQL)</h2>");
+
+        try {
+            // Load MySQL driver (for Connector/J 8.x)
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            // Change password if different
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/ebookshop_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC",
+                "root", "");   // ←←← CHANGE THIS
+
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM ebookshop");
+
+            out.println("<table>");
+            out.println("<tr><th>Book ID</th><th>Title</th><th>Author</th><th>Price</th><th>Quantity</th></tr>");
+
+            while (rs.next()) {
+                out.println("<tr>");
+                out.println("<td>" + rs.getInt("book_id") + "</td>");
+                out.println("<td>" + rs.getString("book_title") + "</td>");
+                out.println("<td>" + rs.getString("book_author") + "</td>");
+                out.println("<td>$" + rs.getBigDecimal("book_price") + "</td>");
+                out.println("<td>" + rs.getInt("quantity") + "</td>");
+                out.println("</tr>");
+            }
+            out.println("</table>");
+
+            rs.close();
+            stmt.close();
+            con.close();
+
+        } catch (Exception e) {
+            out.println("<h3 style='color:red'>Error: " + e.getMessage() + "</h3>");
+            e.printStackTrace();
+        }
+
+        out.println("<br><a href='displaybooks'>Refresh</a>");
+        out.println("</body></html>");
+    }
+}
+Run as Server url-> http://localhost:8000/EbookServletDemo/displaybooks
